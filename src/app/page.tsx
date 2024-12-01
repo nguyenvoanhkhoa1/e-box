@@ -507,9 +507,9 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-br from-white from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container p-20">
+          <div className="section-container py-20">
             <div className="flex items-center justify-between">
-              <div className="text-4xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
                 Browse By Book Types
               </div>
               <div className="hidden gap-5 lg:flex">
@@ -539,7 +539,7 @@ export default function Home() {
               <Slider {...settings} ref={sliderRef}>
                 {Object.entries(BOOK_TYPE_DATA).map(([type, data], index) => (
                   <div key={index} className="">
-                    <div className="mx-4 my-8 flex items-center gap-4 rounded-lg bg-white p-5 shadow-xl shadow-blue-100">
+                    <div className="mx-4 my-8 flex items-center gap-6 rounded-lg bg-white px-8 py-6 shadow-xl shadow-blue-100">
                       <Image
                         src={data.icon}
                         alt={`${type} Icon`}
@@ -561,7 +561,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-tr from-yellow-50 from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container flex justify-between p-20">
+          <div className="section-container flex justify-between py-20">
             <div className="flex w-full items-center justify-between bg-gradient-to-r from-red-100 to-orange-100 px-10 py-12">
               <Image
                 src={"/assets/images/two-book.png"}
@@ -597,9 +597,9 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-blue-50 to-100%">
-          <div className="section-container p-20">
+          <div className="section-container py-20">
             <div className="flex justify-between">
-              <div className="text-4xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
                 Popular Collections
               </div>
               <div className="flex items-center justify-center">
@@ -691,6 +691,77 @@ export default function Home() {
                 </button>
               </div>
             )}
+          </div>
+        </section>
+        <section className="bg-[#FFF3EB]">
+          <div className="section-container py-20">
+            <div className="flex items-center justify-between">
+              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+                Why Choice
+                <br />
+                The <span className="text-primary-default">eDox</span> Bookshop
+              </div>
+              <div className="max-w-[450px] font-semibold leading-loose text-gray-700">
+                Starting off in an eighteenth century London, this book invites
+                readers to an exciting journey. The lifelong fight of main
+                protagonist&apos;s crime solving. The life of his fight against
+                the biggest villains,
+              </div>
+            </div>
+            <div className="mt-10 flex justify-between rounded-[64px] bg-white px-28 py-20">
+              <div className="relative">
+                <div className="absolute z-0 size-64 shrink-0 rounded-full bg-primary-default" />
+                <Image
+                  src={"/assets/images/graduation.png"}
+                  alt={""}
+                  width={256}
+                  height={256}
+                  className="relative top-1/2 z-10 size-56 -translate-y-1/2 translate-x-1/3"
+                />
+              </div>
+              <div className="flex w-1/2 flex-col gap-6">
+                <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+                  Expand your mind,{" "}
+                  <span className="text-secondary-default">Reading</span> a book
+                </div>
+                <div className="font-semibold text-gray-700">
+                  Starting off in an eighteenth century London, this book
+                  invites readers to an exciting journey.
+                </div>
+                <div className="flex gap-5">
+                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100">
+                    <Image
+                      src={"/assets/icons/productivity.png"}
+                      alt={""}
+                      width={64}
+                      height={64}
+                      className="size-8"
+                    />
+                    Productivity
+                  </div>
+                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-orange-500 shadow-xl shadow-orange-100">
+                    <Image
+                      src={"/assets/icons/puzzle.png"}
+                      alt={""}
+                      width={64}
+                      height={64}
+                      className="size-8"
+                    />
+                    Solution
+                  </div>
+                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-green-500 shadow-xl shadow-green-100">
+                    <Image
+                      src={"/assets/icons/skills.png"}
+                      alt={""}
+                      width={64}
+                      height={64}
+                      className="size-8"
+                    />
+                    Options
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
