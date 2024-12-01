@@ -3,9 +3,17 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons"
 import {
+  faStarHalfStroke as halfStar,
+  faStar as solidStar,
+} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  ArrowCounterClockwise,
   ArrowLeft,
   ArrowRight,
+  ArrowsClockwise,
   Bag,
   List,
   MagnifyingGlass,
@@ -51,10 +59,10 @@ export default function Home() {
   ]
 
   enum BookType {
-    NON_FICTION = "Non Fiction",
     FICTION = "Fiction",
     HISTORY = "History",
     THRILLER = "Thriller",
+    NON_FICTION = "Non Fiction",
     POETRY = "Poetry",
     FANTASY = "Fantasy",
     BIOGRAPHY = "Biography",
@@ -88,6 +96,209 @@ export default function Home() {
     [BookType.ROMANCE]: { item: "321 Items", icon: "/assets/icons/type-9.png" },
     [BookType.HORROR]: { item: "175 Items", icon: "/assets/icons/type-10.png" },
   }
+
+  const BOOKS_LIST = [
+    {
+      id: 1,
+      title: "A Brief History of America",
+      code: "ISBN-100236547851",
+      oldPrice: "$7.99",
+      newPrice: "$3.36",
+      image: "/assets/images/book-1.png",
+      rating: 4.5,
+      type: BookType.BIOGRAPHY,
+    },
+    {
+      id: 2,
+      title: "Dark in Mask Gratitude",
+      code: "ISBN-100236547852",
+      oldPrice: "$10.99",
+      newPrice: "$6.49",
+      image: "/assets/images/book-2.png",
+      rating: 4.7,
+      type: BookType.HORROR,
+    },
+    {
+      id: 3,
+      title: "Drawn to the Sky by Marcos Trison",
+      code: "ISBN-100236547853",
+      oldPrice: "$8.99",
+      newPrice: "$5.50",
+      image: "/assets/images/book-3.png",
+      rating: 4.2,
+      type: BookType.POETRY,
+    },
+    {
+      id: 4,
+      title: "The unreal and the real.",
+      code: "ISBN-100236547854",
+      oldPrice: "$9.99",
+      newPrice: "$4.99",
+      image: "/assets/images/book-4.png",
+      rating: 4.0,
+      type: BookType.THRILLER,
+    },
+    {
+      id: 5,
+      title: "Forever Is A Long Time To Be Wrong",
+      code: "ISBN-100236547855",
+      oldPrice: "$6.99",
+      newPrice: "$3.99",
+      image: "/assets/images/book-5.png",
+      rating: 4.3,
+      type: BookType.FANTASY,
+    },
+    {
+      id: 6,
+      title: "Glenn meade the cairo code.",
+      code: "ISBN-100236547856",
+      oldPrice: "$12.99",
+      newPrice: "$8.99",
+      image: "/assets/images/book-6.png",
+      rating: 4.8,
+      type: BookType.ROMANCE,
+    },
+    {
+      id: 7,
+      title: "Glitterings stars by Amver Davis",
+      code: "ISBN-100236547857",
+      oldPrice: "$11.99",
+      newPrice: "$7.99",
+      image: "/assets/images/book-7.png",
+      rating: 4.6,
+      type: BookType.SELF_HELP,
+    },
+    {
+      id: 8,
+      title: "Horror Nights",
+      code: "ISBN-100236547858",
+      oldPrice: "$14.99",
+      newPrice: "$10.99",
+      image: "/assets/images/book-8.png",
+      rating: 4.1,
+      type: BookType.HORROR,
+    },
+    {
+      id: 9,
+      title: "Learn Abstract Design",
+      code: "ISBN-100236547859",
+      oldPrice: "$13.99",
+      newPrice: "$9.99",
+      image: "/assets/images/book-9.png",
+      rating: 4.9,
+      type: BookType.BIOGRAPHY,
+    },
+    {
+      id: 10,
+      title: "Let the sun shine – Angelika glow",
+      code: "ISBN-100236547860",
+      oldPrice: "$9.99",
+      newPrice: "$5.99",
+      image: "/assets/images/book-10.png",
+      rating: 4.4,
+      type: BookType.NON_FICTION,
+    },
+    {
+      id: 11,
+      title: "Living The Life You Always Wanted",
+      code: "ISBN-100236547861",
+      oldPrice: "$10.99",
+      newPrice: "$7.36",
+      image: "/assets/images/book-11.png",
+      rating: 4.0,
+      type: BookType.THRILLER,
+    },
+    {
+      id: 12,
+      title: "Lucinda Riley The Seven Sister.",
+      code: "ISBN-100236547862",
+      oldPrice: "$15.99",
+      newPrice: "$11.49",
+      image: "/assets/images/book-12.png",
+      rating: 4.8,
+      type: BookType.FICTION,
+    },
+    {
+      id: 13,
+      title: "Never stop your spirit",
+      code: "ISBN-100236547863",
+      oldPrice: "$9.49",
+      newPrice: "$5.49",
+      image: "/assets/images/book-13.png",
+      rating: 4.3,
+      type: BookType.HISTORY,
+    },
+    {
+      id: 14,
+      title: "One year on a bike – Bookpress",
+      code: "ISBN-100236547864",
+      oldPrice: "$8.99",
+      newPrice: "$6.99",
+      image: "/assets/images/book-14.png",
+      rating: 4.2,
+      type: BookType.POETRY,
+    },
+    {
+      id: 15,
+      title: "The Birds",
+      code: "ISBN-100236547865",
+      oldPrice: "$10.99",
+      newPrice: "$7.49",
+      image: "/assets/images/book-15.png",
+      rating: 4.5,
+      type: BookType.SELF_HELP,
+    },
+    {
+      id: 16,
+      title: "The Waterfall story",
+      code: "ISBN-100236547866",
+      oldPrice: "$6.99",
+      newPrice: "$4.49",
+      image: "/assets/images/book-16.png",
+      rating: 4.3,
+      type: BookType.ROMANCE,
+    },
+    // {
+    //   id: 17,
+    //   title: "The Fantasy Chronicles",
+    //   code: "ISBN-100236547867",
+    //   oldPrice: "$13.49",
+    //   newPrice: "$9.99",
+    //   image: "/assets/images/book-17.png",
+    //   rating: 4.9,
+    //   type: BookType.FANTASY,
+    // },
+    // {
+    //   id: 18,
+    //   title: "Horror Tales Untold",
+    //   code: "ISBN-100236547868",
+    //   oldPrice: "$14.99",
+    //   newPrice: "$12.99",
+    //   image: "/assets/images/book-18.png",
+    //   rating: 4.0,
+    //   type: BookType.HORROR,
+    // },
+    // {
+    //   id: 19,
+    //   title: "Biography of Legends",
+    //   code: "ISBN-100236547869",
+    //   oldPrice: "$11.49",
+    //   newPrice: "$8.99",
+    //   image: "/assets/images/book-19.png",
+    //   rating: 4.7,
+    //   type: BookType.BIOGRAPHY,
+    // },
+    // {
+    //   id: 20,
+    //   title: "The Real Stories",
+    //   code: "ISBN-100236547870",
+    //   oldPrice: "$9.99",
+    //   newPrice: "$6.99",
+    //   image: "/assets/images/book-20.png",
+    //   rating: 4.4,
+    //   type: BookType.NON_FICTION,
+    // },
+  ]
 
   const FOOTER_LINKS = [
     {
@@ -149,6 +360,17 @@ export default function Home() {
       },
     ],
   }
+
+  const [activeType, setActiveType] = useState<BookType | "All">("All")
+  const [visibleBooks, setVisibleBooks] = useState(8)
+  const filteredBooks =
+    activeType === "All"
+      ? BOOKS_LIST
+      : BOOKS_LIST.filter((book) => book.type === activeType)
+  const handleLoad = () => {
+    setVisibleBooks((prev) => prev + 8) // Show 8 more books
+  }
+  const filterOptions = ["All", ...Object.values(BookType)].slice(0, 5)
 
   return (
     <>
@@ -287,7 +509,7 @@ export default function Home() {
         <section className="bg-gradient-to-br from-white from-0% via-red-50 via-50% to-purple-50 to-100%">
           <div className="section-container p-20">
             <div className="flex items-center justify-between">
-              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-4xl font-bold leading-tight tracking-[-0.07em]">
                 Browse By Book Types
               </div>
               <div className="hidden gap-5 lg:flex">
@@ -374,12 +596,101 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-green-50 to-100%">
+        <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-blue-50 to-100%">
           <div className="section-container p-20">
-            <div>
-              <div></div>
-              <div></div>
+            <div className="flex justify-between">
+              <div className="text-4xl font-bold leading-tight tracking-[-0.07em]">
+                Popular Collections
+              </div>
+              <div className="flex items-center justify-center">
+                {filterOptions.map((type) => (
+                  <>
+                    {type !== "All" && (
+                      <span className="h-2 w-px border-l-2 border-gray-300"></span>
+                    )}
+                    <button
+                      key={type}
+                      onClick={() => setActiveType(type as BookType | "All")}
+                      className={`px-3 py-2 text-xl font-medium ${
+                        activeType === type
+                          ? "text-secondary-default"
+                          : "text-gray-600"
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  </>
+                ))}
+              </div>
             </div>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {filteredBooks.slice(0, visibleBooks).map((book) => (
+                <div
+                  key={book.id}
+                  className="flex flex-col items-center bg-white p-6 hover:shadow-lg"
+                >
+                  <Image
+                    src={book.image}
+                    alt={book.title}
+                    width={300}
+                    height={400}
+                    className="mb-4 h-56 w-auto rounded-md object-cover"
+                  />
+                  <div className="mb-2 flex items-center">
+                    {Array.from({ length: 5 }).map((_, index) => {
+                      const ratingValue = book.rating - index
+
+                      return (
+                        <FontAwesomeIcon
+                          key={index}
+                          icon={
+                            ratingValue >= 1
+                              ? solidStar
+                              : ratingValue >= 0.5
+                                ? halfStar
+                                : emptyStar
+                          }
+                          className="mr-1 text-primary-default"
+                        />
+                      )
+                    })}
+                  </div>
+                  <h3
+                    className="mb-2 line-clamp-1 text-center font-semibold"
+                    title={book.title}
+                  >
+                    {book.title}
+                  </h3>
+                  <p className="mb-2 text-sm text-gray-600">{book.code}</p>
+                  <div className="mb-4">
+                    <span className="mr-2 text-sm font-semibold text-red-500 line-through">
+                      {book.oldPrice}
+                    </span>
+                    <span className="font-bold text-secondary-default">
+                      {book.newPrice}
+                    </span>
+                  </div>
+                  <button className="group flex items-center gap-3 rounded-md border border-secondary-default px-3 py-2 text-sm font-semibold text-secondary-default transition hover:bg-secondary-default hover:text-white">
+                    Purchase
+                    <ShoppingCart
+                      size={20}
+                      className="fill-secondary-default transition group-hover:fill-white"
+                    />
+                  </button>
+                </div>
+              ))}
+            </div>
+            {filteredBooks.length > visibleBooks && (
+              <div className="mt-10 text-center">
+                <button
+                  onClick={handleLoad}
+                  className="mx-auto flex items-center gap-3 rounded-full bg-secondary-default px-6 py-2 text-white transition hover:bg-green-600"
+                >
+                  <ArrowsClockwise size={20} className="fill-white" />
+                  Load More
+                </button>
+              </div>
+            )}
           </div>
         </section>
       </main>
