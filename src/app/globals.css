@@ -7,12 +7,12 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
@@ -20,8 +20,112 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .section-container {
+    @apply container mx-auto px-4 sm:px-6 xl:max-w-6xl xl:px-0;
+  }
+
+  .display-01 {
+    @apply text-[80px] font-semibold leading-[80px] tracking-[-2%];
+  }
+
+  .display-02 {
+    @apply text-[72px] font-semibold leading-[74px] tracking-[-2%];
+  }
+
+  .display-03 {
+    @apply text-[64px] font-semibold leading-[68px] tracking-[-2%];
+  }
+
+  .heading-01 {
+    @apply text-[48px] font-semibold leading-[52px] tracking-[-2%];
+  }
+
+  .heading-02 {
+    @apply text-[40px] font-semibold leading-[48px] tracking-[-1%];
+  }
+
+  .heading-03 {
+    @apply text-[32px] font-semibold leading-[40px] tracking-[-1%];
+  }
+
+  .heading-04 {
+    @apply text-[24px] font-semibold leading-[32px] tracking-[-1%];
+  }
+
+  .body-3xl-400 {
+    @apply text-[24px] font-normal leading-[32px];
+  }
+
+  .body-2xl-400 {
+    @apply text-[20px] font-normal leading-[32px];
+  }
+
+  .body-2xl-500 {
+    @apply text-[20px] font-medium leading-[26px];
+  }
+
+  .body-2xl-600 {
+    @apply text-[20px] font-semibold leading-[26px];
+  }
+
+  .body-xl-400 {
+    @apply text-[18px] font-normal leading-[24px];
+  }
+
+  .body-xl-500 {
+    @apply text-[18px] font-medium leading-[24px];
+  }
+
+  .body-xl-600 {
+    @apply text-[18px] font-semibold leading-[24px];
+  }
+
+  .body-lg-400 {
+    @apply text-[16px] font-normal leading-[24px];
+  }
+
+  .body-lg-500 {
+    @apply text-[16px] font-medium leading-[22px];
+  }
+
+  .body-lg-600 {
+    @apply text-[16px] font-semibold leading-[22px];
+  }
+
+  .body-md-400 {
+    @apply text-[14px] font-normal leading-[22px];
+  }
+
+  .body-md-500 {
+    @apply text-[14px] font-medium leading-[20px];
+  }
+
+  .body-md-600 {
+    @apply text-[14px] font-semibold leading-[20px];
+  }
+
+  .body-sm-400 {
+    @apply text-[12px] font-normal leading-[16px];
+  }
+
+  .body-sm-500 {
+    @apply text-[12px] font-medium leading-[16px];
+  }
+
+  .body-sm-600 {
+    @apply text-[12px] font-semibold leading-[16px];
+  }
+
+  .body-xs-400 {
+    @apply text-[10px] font-normal leading-[10px];
+  }
+
+  .body-xs-500 {
+    @apply text-[10px] font-medium leading-[10px];
+  }
+
+  .body-xs-600 {
+    @apply text-[10px] font-semibold leading-[10px];
   }
 }
