@@ -50,22 +50,44 @@ export default function Home() {
     },
   ]
 
-  const BOOK_TYPES = [
-    {
-      name: "Non Fiction",
+  enum BookType {
+    NON_FICTION = "Non Fiction",
+    FICTION = "Fiction",
+    HISTORY = "History",
+    THRILLER = "Thriller",
+    POETRY = "Poetry",
+    FANTASY = "Fantasy",
+    BIOGRAPHY = "Biography",
+    SELF_HELP = "Self Help",
+    ROMANCE = "Romance",
+    HORROR = "Horror",
+  }
+
+  // Define the metadata for each book type
+  const BOOK_TYPE_DATA = {
+    [BookType.NON_FICTION]: {
       item: "302 Items",
       icon: "/assets/icons/type-1.png",
     },
-    { name: "Fiction", item: "296 Items", icon: "/assets/icons/type-2.png" },
-    { name: "History", item: "258 Items", icon: "/assets/icons/type-3.png" },
-    { name: "Thriller", item: "169 Items", icon: "/assets/icons/type-4.png" },
-    { name: "Poetry", item: "302 Items", icon: "/assets/icons/type-5.png" },
-    { name: "Fantasy", item: "198 Items", icon: "/assets/icons/type-6.png" },
-    { name: "Biography", item: "276 Items", icon: "/assets/icons/type-7.png" },
-    { name: "Self Help", item: "189 Items", icon: "/assets/icons/type-8.png" },
-    { name: "Romance", item: "321 Items", icon: "/assets/icons/type-9.png" },
-    { name: "Horror", item: "175 Items", icon: "/assets/icons/type-10.png" },
-  ]
+    [BookType.FICTION]: { item: "296 Items", icon: "/assets/icons/type-2.png" },
+    [BookType.HISTORY]: { item: "258 Items", icon: "/assets/icons/type-3.png" },
+    [BookType.THRILLER]: {
+      item: "169 Items",
+      icon: "/assets/icons/type-4.png",
+    },
+    [BookType.POETRY]: { item: "302 Items", icon: "/assets/icons/type-5.png" },
+    [BookType.FANTASY]: { item: "198 Items", icon: "/assets/icons/type-6.png" },
+    [BookType.BIOGRAPHY]: {
+      item: "276 Items",
+      icon: "/assets/icons/type-7.png",
+    },
+    [BookType.SELF_HELP]: {
+      item: "189 Items",
+      icon: "/assets/icons/type-8.png",
+    },
+    [BookType.ROMANCE]: { item: "321 Items", icon: "/assets/icons/type-9.png" },
+    [BookType.HORROR]: { item: "175 Items", icon: "/assets/icons/type-10.png" },
+  }
 
   const FOOTER_LINKS = [
     {
@@ -293,21 +315,21 @@ export default function Home() {
             </div>
             <div className="-mx-4 mt-10">
               <Slider {...settings} ref={sliderRef}>
-                {BOOK_TYPES.map((item, index) => (
+                {Object.entries(BOOK_TYPE_DATA).map(([type, data], index) => (
                   <div key={index} className="">
                     <div className="mx-4 my-8 flex items-center gap-4 rounded-lg bg-white p-5 shadow-xl shadow-blue-100">
                       <Image
-                        src={item.icon}
-                        alt={""}
+                        src={data.icon}
+                        alt={`${type} Icon`}
                         width={128}
                         height={128}
                         className="size-8"
                       />
                       <div>
                         <div className="whitespace-nowrap font-semibold">
-                          {item.name}
+                          {type}
                         </div>
-                        <div className="text-sm text-gray-700">{item.item}</div>
+                        <div className="text-sm text-gray-700">{data.item}</div>
                       </div>
                     </div>
                   </div>
@@ -349,6 +371,14 @@ export default function Home() {
                 height={1871}
                 className="h-52 w-auto"
               />
+            </div>
+          </div>
+        </section>
+        <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-green-50 to-100%">
+          <div className="section-container p-20">
+            <div>
+              <div></div>
+              <div></div>
             </div>
           </div>
         </section>
