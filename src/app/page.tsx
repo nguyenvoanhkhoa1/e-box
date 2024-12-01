@@ -131,7 +131,7 @@ export default function Home() {
   return (
     <>
       <header
-        className={`fixed z-10 w-full py-4 transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-8" : "bg-black/80 py-4 shadow-md"}`}
+        className={`fixed z-10 w-full py-4 transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-8" : "bg-white/60 py-4 shadow-md"}`}
       >
         <div className={`section-container flex items-center justify-between`}>
           <div className="flex items-center gap-5">
@@ -291,7 +291,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="mt-10">
+            <div className="-mx-4 mt-10">
               <Slider {...settings} ref={sliderRef}>
                 {BOOK_TYPES.map((item, index) => (
                   <div key={index} className="">
@@ -313,6 +313,42 @@ export default function Home() {
                   </div>
                 ))}
               </Slider>
+            </div>
+          </div>
+        </section>
+        <section className="bg-gradient-to-tr from-yellow-50 from-0% via-red-50 via-50% to-purple-50 to-100%">
+          <div className="section-container flex justify-between p-20">
+            <div className="flex w-full items-center justify-between bg-gradient-to-r from-red-100 to-orange-100 px-10 py-12">
+              <Image
+                src={"/assets/images/two-book.png"}
+                alt={""}
+                width={774}
+                height={460}
+                className="h-40 w-auto"
+              />
+              <div>
+                <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+                  Books <span className="text-primary-default">50% off</span>{" "}
+                  now!
+                  <br />
+                  Don&apos;t miss such a deal!
+                </div>
+                <div className="mt-5 flex gap-5">
+                  <button className="flex items-center gap-2 rounded-md border border-primary-default bg-primary-default px-3 py-2 font-semibold text-white">
+                    Purchase Now
+                  </button>
+                  <button className="flex items-center gap-2 rounded-md border border-gray-900 bg-white px-3 py-2 font-semibold">
+                    Get Coupon
+                  </button>
+                </div>
+              </div>
+              <Image
+                src={"/assets/images/book-orange.png"}
+                alt={""}
+                width={3000}
+                height={1871}
+                className="h-52 w-auto"
+              />
             </div>
           </div>
         </section>
