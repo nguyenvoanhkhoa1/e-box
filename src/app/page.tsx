@@ -10,13 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  ArrowCounterClockwise,
   ArrowLeft,
   ArrowRight,
   ArrowsClockwise,
   Bag,
+  ChatCircleDots,
   List,
   MagnifyingGlass,
+  PhoneCall,
   ShoppingCart,
   User,
   X,
@@ -300,6 +301,39 @@ export default function Home() {
     // },
   ]
 
+  const AUTHORS_LIST = [
+    {
+      id: 1,
+      name: "Ronald Richards",
+      image: "/assets/images/author-1.png",
+      description: "236 Books Published",
+    },
+    {
+      id: 2,
+      name: "Eleanor Pena",
+      image: "/assets/images/author-2.png",
+      description: "150 Books Published",
+    },
+    {
+      id: 3,
+      name: "Bessie Cooper",
+      image: "/assets/images/author-3.png",
+      description: "120 Books Published",
+    },
+    {
+      id: 4,
+      name: "Marvin McKinney",
+      image: "/assets/images/author-4.png",
+      description: "98 Books Published",
+    },
+    {
+      id: 5,
+      name: "Cameron Williamson",
+      image: "/assets/images/author-5.png",
+      description: "75 Books Published",
+    },
+  ]
+
   const FOOTER_LINKS = [
     {
       title: "Help & Information",
@@ -332,10 +366,12 @@ export default function Home() {
 
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [current, setCurrent] = useState(0)
+  const [currentAuthor, setCurrentAuthor] = useState(0)
 
   useLockBodyScroll(openMobileMenu)
 
   const sliderRef = useRef<Slider>(null)
+  const authorSliderRef = useRef<Slider>(null)
   var settings: Settings = {
     dots: false,
     infinite: true,
@@ -350,6 +386,30 @@ export default function Home() {
 
     beforeChange(_, nextSlide) {
       setCurrent(nextSlide)
+    },
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          swipe: true,
+        },
+      },
+    ],
+  }
+  var settingsAuthorSlider: Settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pauseOnDotsHover: false,
+    arrows: false,
+    swipe: false,
+
+    beforeChange(_, nextSlide) {
+      setCurrentAuthor(nextSlide)
     },
     responsive: [
       {
@@ -760,6 +820,90 @@ export default function Home() {
                     Options
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-gradient-to-tr from-green-50 from-0% via-yellow-50 via-50% to-purple-50 to-100%">
+          <div className="section-container flex flex-col items-center py-20">
+            <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+              Meet our Author
+            </div>
+            <div className="mt-8 text-center font-semibold text-gray-700">
+              Education is the most powerful weapon which you can use to change
+              the world. Leadership is not about a title or a designation.
+              It&apos;s about impact, influence inspiration. Impact involves
+              getting results
+            </div>
+            <div className="relative mt-10 w-full px-24">
+              <Slider {...settingsAuthorSlider} ref={authorSliderRef}>
+                {AUTHORS_LIST.map((author) => (
+                  <div key={author.id} className="">
+                    <div className="relative mx-6 mb-8">
+                      <Image
+                        src={author.image}
+                        alt={`${author.name}`}
+                        width={400}
+                        height={500}
+                        className="rounded-xl"
+                      />
+                      <div className="absolute top-0 size-full rounded-xl bg-gradient-to-t from-black/40 to-transparent"></div>
+                      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pb-3 text-center text-white">
+                        <div className="whitespace-nowrap text-lg font-bold">
+                          {author.name}
+                        </div>
+                        <div className="text-sm font-light">
+                          {author.description}
+                        </div>
+                      </div>
+                      <div className="absolute left-1/2 top-full flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-white px-8 py-4 shadow-lg">
+                        <button className="rounded bg-secondary-default p-2">
+                          <PhoneCall
+                            weight="fill"
+                            size={20}
+                            className="fill-white transition-colors duration-300 ease-in-out"
+                          />
+                        </button>
+                        <button className="rounded bg-secondary-default p-2">
+                          <User
+                            weight="fill"
+                            size={20}
+                            className="fill-white transition-colors duration-300 ease-in-out"
+                          />
+                        </button>
+                        <button className="rounded bg-secondary-default p-2">
+                          <ChatCircleDots
+                            weight="fill"
+                            size={20}
+                            className="fill-white transition-colors duration-300 ease-in-out"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+              <div className="absolute left-0 top-1/2 hidden w-full -translate-y-1/2 justify-between lg:flex">
+                <button
+                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition-colors duration-300 ease-in-out hover:bg-secondary-default`}
+                  onClick={authorSliderRef.current?.slickPrev}
+                >
+                  <ArrowLeft
+                    weight="bold"
+                    size={24}
+                    className="fill-secondary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                  />
+                </button>
+                <button
+                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition-colors duration-300 ease-in-out hover:bg-secondary-default`}
+                  onClick={authorSliderRef.current?.slickNext}
+                >
+                  <ArrowRight
+                    weight="bold"
+                    size={24}
+                    className="fill-secondary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                  />
+                </button>
               </div>
             </div>
           </div>
