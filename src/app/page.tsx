@@ -389,8 +389,15 @@ export default function Home() {
     },
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1279,
         settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 3,
           swipe: true,
         },
       },
@@ -413,7 +420,7 @@ export default function Home() {
     },
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1023,
         settings: {
           swipe: true,
         },
@@ -571,15 +578,15 @@ export default function Home() {
                 alt={""}
                 width={128}
                 height={128}
-                className="absolute bottom-0 right-0 size-20 -translate-y-1/2 translate-x-1/2"
+                className="absolute bottom-1/2 right-0 size-20 -translate-y-1/2 xl:bottom-0 xl:translate-x-1/2"
               />
             </div>
           </div>
         </section>
         <section className="bg-gradient-to-br from-white from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container py-20">
+          <div className="section-container py-16 xl:py-20">
             <div className="flex items-center justify-between">
-              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
                 Browse By Book Types
               </div>
               <div className="hidden gap-5 lg:flex">
@@ -631,7 +638,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-tr from-yellow-50 from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container flex justify-between py-20">
+          <div className="section-container flex justify-between py-16 xl:py-20">
             <div className="flex w-full items-center justify-between bg-gradient-to-r from-red-100 to-orange-100 px-10 py-12">
               <Image
                 src={"/assets/images/two-book.png"}
@@ -641,7 +648,7 @@ export default function Home() {
                 className="h-40 w-auto"
               />
               <div>
-                <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+                <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
                   Books <span className="text-primary-default">50% off</span>{" "}
                   now!
                   <br />
@@ -667,9 +674,9 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-blue-50 to-100%">
-          <div className="section-container py-20">
+          <div className="section-container py-16 xl:py-20">
             <div className="flex justify-between">
-              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
                 Popular Collections
               </div>
               <div className="flex items-center justify-center">
@@ -764,9 +771,9 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-[#FFF3EB]">
-          <div className="section-container py-20">
+          <div className="section-container py-16 xl:py-20">
             <div className="flex items-center justify-between">
-              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
                 Why Choice
                 <br />
                 The <span className="text-primary-default">eDox</span> Bookshop
@@ -790,7 +797,7 @@ export default function Home() {
                 />
               </div>
               <div className="flex w-1/2 flex-col gap-6">
-                <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+                <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
                   Expand your mind,{" "}
                   <span className="text-secondary-default">Reading</span> a book
                 </div>
@@ -799,7 +806,7 @@ export default function Home() {
                   invites readers to an exciting journey.
                 </div>
                 <div className="flex gap-5">
-                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
+                  <div className="flex shrink-0 cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
                     <Image
                       src={"/assets/icons/productivity.png"}
                       alt={""}
@@ -809,7 +816,7 @@ export default function Home() {
                     />
                     Productivity
                   </div>
-                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-orange-500 shadow-xl shadow-orange-100 transition duration-300 hover:shadow-orange-200">
+                  <div className="flex shrink-0 cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-orange-500 shadow-xl shadow-orange-100 transition duration-300 hover:shadow-orange-200">
                     <Image
                       src={"/assets/icons/puzzle.png"}
                       alt={""}
@@ -819,7 +826,7 @@ export default function Home() {
                     />
                     Solution
                   </div>
-                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-green-500 shadow-xl shadow-green-100 transition duration-300 hover:shadow-green-200">
+                  <div className="flex shrink-0 cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-green-500 shadow-xl shadow-green-100 transition duration-300 hover:shadow-green-200">
                     <Image
                       src={"/assets/icons/skills.png"}
                       alt={""}
@@ -835,8 +842,8 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-tr from-green-50 from-0% via-yellow-50 via-50% to-purple-50 to-100%">
-          <div className="section-container flex flex-col items-center py-20">
-            <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+          <div className="section-container flex flex-col items-center py-16 xl:py-20">
+            <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
               Meet our Author
             </div>
             <div className="mt-8 text-center font-semibold text-gray-700">
@@ -866,7 +873,7 @@ export default function Home() {
                           {author.description}
                         </div>
                       </div>
-                      <div className="absolute left-1/2 top-full flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-white px-8 py-4 shadow-lg">
+                      <div className="absolute left-1/2 top-full flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-white p-4 shadow-lg xl:px-8">
                         <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <PhoneCall
                             weight="fill"
@@ -920,10 +927,10 @@ export default function Home() {
         </section>
         <section className="bg-primary-default">
           <div className="section-container flex items-center justify-between py-16 text-white">
-            <div className="whitespace-nowrap text-6xl font-bold leading-tight">
+            <div className="whitespace-nowrap text-5xl font-bold leading-tight xl:text-6xl">
               50% Sale!
             </div>
-            <div className="max-w-[70%] text-5xl font-bold leading-tight tracking-[-0.07em]">
+            <div className="max-w-[70%] text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
               Purchase your Selected item up to 50% Discount in every week
             </div>
           </div>
