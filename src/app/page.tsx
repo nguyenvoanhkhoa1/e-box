@@ -435,7 +435,7 @@ export default function Home() {
   return (
     <>
       <header
-        className={`fixed z-10 w-full py-4 transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-8" : "bg-white/60 py-4 shadow-md"}`}
+        className={`fixed z-10 w-full py-4 transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-8" : "bg-white/80 py-4 shadow-md"}`}
       >
         <div className={`section-container flex items-center justify-between`}>
           <div className="flex items-center gap-5">
@@ -444,7 +444,7 @@ export default function Home() {
                 eB
               </div>
             </Link>
-            <button className="flex items-center gap-2 rounded-md bg-white p-3 shadow-md">
+            <button className="flex items-center gap-2 rounded-md bg-white p-3 shadow-md transition duration-300 hover:shadow-lg">
               <Image
                 src={"/assets/icons/gift-box.png"}
                 alt={""}
@@ -459,7 +459,7 @@ export default function Home() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`body-lg-600 p-4 transition-all duration-300 ease-in-out ${
+                className={`body-lg-600 p-4 transition duration-300 ${
                   link.isActive
                     ? "text-primary-default"
                     : "text-gray-900 hover:text-primary-default"
@@ -471,19 +471,29 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-2">
             <button
-              className="body-md-500 flex size-12 items-center justify-center rounded-md p-2 text-white transition-colors duration-300 ease-in-out hover:bg-white/10 lg:hidden"
+              className="body-md-500 flex size-12 items-center justify-center rounded-md p-2 text-white transition duration-300 hover:bg-white/10 lg:hidden"
               onClick={() => setOpenMobileMenu(true)}
             >
               <List size={24} />
             </button>
-            <button className="flex size-12 items-center justify-center rounded-full bg-transparent transition-colors duration-300 ease-in-out hover:bg-black/10">
-              <MagnifyingGlass size={24} />
+            <button className="group flex size-12 items-center justify-center rounded-full bg-transparent transition duration-300 hover:bg-black/10">
+              <MagnifyingGlass
+                size={24}
+                className="transition duration-300 group-hover:fill-primary-default"
+              />
             </button>
-            <button className="flex size-12 items-center justify-center rounded-full bg-transparent transition-colors duration-300 ease-in-out hover:bg-black/10">
-              <ShoppingCart size={24} />
+            <button className="group flex size-12 items-center justify-center rounded-full bg-transparent transition duration-300 hover:bg-black/10">
+              <ShoppingCart
+                size={24}
+                className="transition duration-300 group-hover:fill-primary-default"
+              />
             </button>
-            <button className="flex items-center gap-2 rounded-md border-2 border-primary-default px-3 py-2 font-semibold">
-              <User size={24} /> Login
+            <button className="group flex items-center gap-2 rounded-md border-2 border-primary-default px-3 py-2 font-semibold transition duration-300 hover:bg-primary-default hover:text-white hover:shadow-lg hover:shadow-primary-default/20">
+              <User
+                size={24}
+                className="fill-black transition duration-300 group-hover:fill-white"
+              />{" "}
+              Login
             </button>
           </div>
           <div
@@ -491,7 +501,7 @@ export default function Home() {
           >
             <div className={`section-container ${isAtTop ? "py-8" : "py-4"}`}>
               <button
-                className="top-4 float-end flex size-12 items-center justify-center transition-all duration-300 ease-in-out hover:shadow-lg"
+                className="top-4 float-end flex size-12 items-center justify-center transition duration-300 hover:shadow-lg"
                 onClick={() => setOpenMobileMenu(false)}
               >
                 <X size={24} className="fill-white" />
@@ -501,7 +511,7 @@ export default function Home() {
                   <Link
                     href={item.href}
                     key={index}
-                    className="active:text-secondary-dark block py-4 text-center text-primary-default transition-all duration-200 ease-in-out active:bg-primary-default"
+                    className="active:text-secondary-dark block py-4 text-center text-primary-default transition duration-200 active:bg-primary-default"
                     onClick={() =>
                       setTimeout(() => {
                         setOpenMobileMenu(false)
@@ -511,7 +521,7 @@ export default function Home() {
                     {item.label}
                   </Link>
                 ))}
-                <button className="mx-auto mt-4 flex size-12 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
+                <button className="mx-auto mt-4 flex size-12 items-center justify-center rounded-full bg-primary-default transition duration-300">
                   <Bag size={24} className="fill-secondary-dark" />
                 </button>
               </div>
@@ -533,10 +543,10 @@ export default function Home() {
                 little more about your product or service.
               </div>
               <div className="flex gap-5">
-                <button className="flex items-center gap-2 rounded-md border-2 border-secondary-default bg-secondary-default px-3 py-2 font-semibold text-white">
+                <button className="flex items-center gap-2 rounded-md border-2 border-secondary-default bg-secondary-default px-3 py-2 font-semibold text-white shadow-secondary-default/20 transition duration-300 hover:bg-green-600 hover:shadow-lg">
                   Purchase Now
                 </button>
-                <button className="flex items-center gap-2 rounded-md border-2 border-primary-default px-3 py-2 font-semibold">
+                <button className="flex items-center gap-2 rounded-md border-2 border-primary-default px-3 py-2 font-semibold shadow-primary-default/20 transition duration-300 hover:bg-primary-default hover:text-white hover:shadow-lg">
                   Explore Bookshop
                 </button>
               </div>
@@ -574,23 +584,23 @@ export default function Home() {
               </div>
               <div className="hidden gap-5 lg:flex">
                 <button
-                  className={`group rounded-full border-2 border-solid border-primary-default p-3 shadow-lg shadow-primary-default/20 transition-colors duration-300 ease-in-out hover:bg-primary-default`}
+                  className={`group rounded-full border-2 border-solid border-primary-default p-3 shadow-lg shadow-primary-default/20 transition duration-300 hover:bg-primary-default`}
                   onClick={sliderRef.current?.slickPrev}
                 >
                   <ArrowLeft
                     weight="bold"
                     size={24}
-                    className="fill-primary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                    className="fill-primary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
                 <button
-                  className={`group rounded-full border-2 border-solid border-primary-default p-3 shadow-lg shadow-primary-default/20 transition-colors duration-300 ease-in-out hover:bg-primary-default`}
+                  className={`group rounded-full border-2 border-solid border-primary-default p-3 shadow-lg shadow-primary-default/20 transition duration-300 hover:bg-primary-default`}
                   onClick={sliderRef.current?.slickNext}
                 >
                   <ArrowRight
                     weight="bold"
                     size={24}
-                    className="fill-primary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                    className="fill-primary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
               </div>
@@ -599,7 +609,7 @@ export default function Home() {
               <Slider {...settings} ref={sliderRef}>
                 {Object.entries(BOOK_TYPE_DATA).map(([type, data], index) => (
                   <div key={index} className="">
-                    <div className="mx-4 my-8 flex items-center gap-6 rounded-lg bg-white px-8 py-6 shadow-xl shadow-blue-100">
+                    <div className="mx-4 my-8 flex cursor-pointer items-center gap-6 rounded-lg bg-white px-8 py-6 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
                       <Image
                         src={data.icon}
                         alt={`${type} Icon`}
@@ -638,10 +648,10 @@ export default function Home() {
                   Don&apos;t miss such a deal!
                 </div>
                 <div className="mt-5 flex gap-5">
-                  <button className="flex items-center gap-2 rounded-md border border-primary-default bg-primary-default px-3 py-2 font-semibold text-white">
+                  <button className="flex items-center gap-2 rounded-md border border-primary-default bg-primary-default px-3 py-2 font-semibold text-white shadow-primary-default/20 transition duration-300 hover:bg-orange-600 hover:shadow-lg">
                     Purchase Now
                   </button>
-                  <button className="flex items-center gap-2 rounded-md border border-gray-900 bg-white px-3 py-2 font-semibold">
+                  <button className="flex items-center gap-2 rounded-md border border-gray-900 bg-white px-3 py-2 font-semibold transition duration-300 hover:bg-gray-900 hover:text-white">
                     Get Coupon
                   </button>
                 </div>
@@ -671,10 +681,10 @@ export default function Home() {
                     <button
                       key={type}
                       onClick={() => setActiveType(type as BookType | "All")}
-                      className={`px-3 py-2 text-xl font-medium ${
+                      className={`px-3 py-2 text-xl font-medium transition duration-300 ${
                         activeType === type
                           ? "text-secondary-default"
-                          : "text-gray-600"
+                          : "text-gray-600 hover:text-secondary-default"
                       }`}
                     >
                       {type}
@@ -687,14 +697,14 @@ export default function Home() {
               {filteredBooks.slice(0, visibleBooks).map((book) => (
                 <div
                   key={book.id}
-                  className="flex flex-col items-center bg-white p-6 hover:shadow-lg"
+                  className="flex flex-col items-center bg-white p-6 transition duration-300 hover:shadow-lg"
                 >
                   <Image
                     src={book.image}
                     alt={book.title}
                     width={300}
                     height={400}
-                    className="mb-4 h-56 w-auto rounded-md object-cover"
+                    className="mb-4 h-56 w-auto cursor-pointer rounded-md object-cover"
                   />
                   <div className="mb-2 flex items-center">
                     {Array.from({ length: 5 }).map((_, index) => {
@@ -716,7 +726,7 @@ export default function Home() {
                     })}
                   </div>
                   <h3
-                    className="mb-2 line-clamp-1 text-center font-semibold"
+                    className="mb-2 line-clamp-1 cursor-pointer text-center font-semibold transition duration-300 hover:text-secondary-default"
                     title={book.title}
                   >
                     {book.title}
@@ -744,7 +754,7 @@ export default function Home() {
               <div className="mt-10 text-center">
                 <button
                   onClick={handleLoad}
-                  className="mx-auto flex items-center gap-3 rounded-full bg-secondary-default px-6 py-2 text-white transition hover:bg-green-600"
+                  className="mx-auto flex items-center gap-3 rounded-full bg-secondary-default px-6 py-2 text-white transition duration-300 hover:bg-green-600 hover:shadow-lg hover:shadow-secondary-default/20"
                 >
                   <ArrowsClockwise size={20} className="fill-white" />
                   Load More
@@ -789,7 +799,7 @@ export default function Home() {
                   invites readers to an exciting journey.
                 </div>
                 <div className="flex gap-5">
-                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100">
+                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
                     <Image
                       src={"/assets/icons/productivity.png"}
                       alt={""}
@@ -799,7 +809,7 @@ export default function Home() {
                     />
                     Productivity
                   </div>
-                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-orange-500 shadow-xl shadow-orange-100">
+                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-orange-500 shadow-xl shadow-orange-100 transition duration-300 hover:shadow-orange-200">
                     <Image
                       src={"/assets/icons/puzzle.png"}
                       alt={""}
@@ -809,7 +819,7 @@ export default function Home() {
                     />
                     Solution
                   </div>
-                  <div className="flex items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-green-500 shadow-xl shadow-green-100">
+                  <div className="flex cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-green-500 shadow-xl shadow-green-100 transition duration-300 hover:shadow-green-200">
                     <Image
                       src={"/assets/icons/skills.png"}
                       alt={""}
@@ -857,25 +867,25 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="absolute left-1/2 top-full flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-white px-8 py-4 shadow-lg">
-                        <button className="rounded bg-secondary-default p-2">
+                        <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <PhoneCall
                             weight="fill"
                             size={20}
-                            className="fill-white transition-colors duration-300 ease-in-out"
+                            className="fill-white"
                           />
                         </button>
-                        <button className="rounded bg-secondary-default p-2">
+                        <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <User
                             weight="fill"
                             size={20}
-                            className="fill-white transition-colors duration-300 ease-in-out"
+                            className="fill-white"
                           />
                         </button>
-                        <button className="rounded bg-secondary-default p-2">
+                        <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <ChatCircleDots
                             weight="fill"
                             size={20}
-                            className="fill-white transition-colors duration-300 ease-in-out"
+                            className="fill-white"
                           />
                         </button>
                       </div>
@@ -885,23 +895,23 @@ export default function Home() {
               </Slider>
               <div className="absolute left-0 top-1/2 hidden w-full -translate-y-1/2 justify-between lg:flex">
                 <button
-                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition-colors duration-300 ease-in-out hover:bg-secondary-default`}
+                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition duration-300 hover:bg-secondary-default`}
                   onClick={authorSliderRef.current?.slickPrev}
                 >
                   <ArrowLeft
                     weight="bold"
                     size={24}
-                    className="fill-secondary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                    className="fill-secondary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
                 <button
-                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition-colors duration-300 ease-in-out hover:bg-secondary-default`}
+                  className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition duration-300 hover:bg-secondary-default`}
                   onClick={authorSliderRef.current?.slickNext}
                 >
                   <ArrowRight
                     weight="bold"
                     size={24}
-                    className="fill-secondary-default transition-colors duration-300 ease-in-out group-hover:fill-white"
+                    className="fill-secondary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
               </div>
@@ -960,7 +970,7 @@ export default function Home() {
                       href={link.href}
                       className="flex items-center py-1.5"
                     >
-                      <div className="text-white/70 transition-colors duration-150 ease-in-out hover:text-white">
+                      <div className="text-white/70 transition duration-150 hover:text-white">
                         {link.label}
                       </div>
                     </Link>
@@ -973,11 +983,11 @@ export default function Home() {
                 Contact Us
               </div>
               <div className="flex items-center gap-4">
-                <button className="rounded-md bg-white p-3">
+                <button className="group rounded-md bg-white p-3 transition duration-300 hover:bg-secondary-default">
                   <PhoneCall
                     weight="fill"
                     size={26}
-                    className="fill-secondary-default transition-colors duration-300 ease-in-out"
+                    className="fill-secondary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
                 <div className="text-white">
@@ -986,11 +996,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <button className="rounded-md bg-white p-3">
+                <button className="group rounded-md bg-white p-3 transition duration-300 hover:bg-secondary-default">
                   <ChatCircleDots
                     weight="fill"
                     size={26}
-                    className="fill-secondary-default transition-colors duration-300 ease-in-out"
+                    className="fill-secondary-default transition duration-300 group-hover:fill-white"
                   />
                 </button>
                 <div className="text-white">
@@ -1005,22 +1015,13 @@ export default function Home() {
           <div className="section-container flex flex-col items-center justify-between gap-4 py-6 font-semibold md:flex md:flex-row">
             <div>©2023-All Rights Reserved</div>
             <div className="flex gap-6">
-              <Link
-                href="/"
-                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
-              >
+              <Link href="/" className="hover:black transition duration-150">
                 Terms And Condition
               </Link>
-              <Link
-                href={""}
-                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
-              >
+              <Link href={""} className="hover:black transition duration-150">
                 Claim
               </Link>
-              <Link
-                href={""}
-                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
-              >
+              <Link href={""} className="hover:black transition duration-150">
                 Privacy & policy
               </Link>
             </div>
