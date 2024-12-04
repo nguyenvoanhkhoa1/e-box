@@ -14,7 +14,11 @@ import {
   ArrowRight,
   ArrowsClockwise,
   Bag,
+  BehanceLogo,
   ChatCircleDots,
+  DribbbleLogo,
+  FacebookLogo,
+  InstagramLogo,
   List,
   MagnifyingGlass,
   PhoneCall,
@@ -336,27 +340,23 @@ export default function Home() {
 
   const FOOTER_LINKS = [
     {
-      title: "Help & Information",
+      title: "Delivery",
       links: [
-        { label: "Help", href: "#" },
-        { label: "Track order", href: "#" },
-        { label: "Delivery & returns", href: "#" },
+        { label: "Cost of delivery", href: "#" },
+        { label: "Payment Method", href: "#" },
+        { label: "Delivery Areas", href: "#" },
+        { label: "Delivery Dates", href: "#" },
+        { label: "Complaints & Return", href: "#" },
       ],
     },
     {
-      title: "About Etalon",
+      title: "Discovery",
       links: [
-        { label: "About Us", href: "#" },
-        { label: "Careers of Etalon", href: "#" },
-        { label: "Investors' site", href: "#" },
-      ],
-    },
-    {
-      title: "More from Etalon",
-      links: [
-        { label: "Mobile and Etalon apps", href: "#" },
-        { label: "Gift vouchers", href: "#" },
-        { label: "Black Friday", href: "#" },
+        { label: "Latest News & Blog", href: "#" },
+        { label: "My Checkout", href: "#" },
+        { label: "return & Exchange", href: "#" },
+        { label: "Shipping & Delivery", href: "#" },
+        { label: "Tark Your Order", href: "#" },
       ],
     },
   ]
@@ -919,34 +919,48 @@ export default function Home() {
           </div>
         </section>
       </main>
-      {/* <footer className="border-t border-gray-700">
+      <footer>
         <div className="bg-[#191919]">
-          <div className="section-container grid grid-cols-2 gap-6 py-16 md:grid-cols-4">
-            <div>
+          <div className="section-container flex justify-between py-12">
+            <div className="flex flex-col gap-6">
               <Link href="/" className="flex items-center gap-2">
-                <Image
-                  src={"/assets/etalon-logo.png"}
-                  alt={""}
-                  width={308}
-                  height={308}
-                  className="size-9 rounded-full"
-                />
-                <div className="text-3xl font-bold text-white">etalon</div>
+                <div className="rounded-md bg-primary-default px-3 py-1 text-2xl font-semibold text-white">
+                  eB
+                </div>
               </Link>
+              <div className="max-w-80 text-white">
+                Starting off in an eighteenth century London, this book invites
+                readers to an exciting journey. The lifelong fight of main
+                protagonist&apos;s crime solving.
+              </div>
+              <div className="flex gap-3">
+                <button>
+                  <FacebookLogo size={24} className="fill-white" />
+                </button>
+                <button>
+                  <InstagramLogo size={24} className="fill-white" />
+                </button>
+                <button>
+                  <DribbbleLogo size={24} className="fill-white" />
+                </button>
+                <button>
+                  <BehanceLogo size={24} className="fill-white" />
+                </button>
+              </div>
             </div>
             {FOOTER_LINKS.map((column) => (
-              <div key={column.title}>
-                <div className="text-lg font-semibold text-white">
+              <div key={column.title} className="shrink-0">
+                <div className="text-lg font-bold text-secondary-default">
                   {column.title}
                 </div>
-                <div className="mt-5 flex flex-col items-start gap-1">
+                <div className="mt-8 flex flex-col items-start">
                   {column.links.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
                       className="flex items-center py-1.5"
                     >
-                      <div className="text-gray-500 transition-colors duration-150 ease-in-out hover:text-gray-300">
+                      <div className="text-white/70 transition-colors duration-150 ease-in-out hover:text-white">
                         {link.label}
                       </div>
                     </Link>
@@ -954,36 +968,65 @@ export default function Home() {
                 </div>
               </div>
             ))}
+            <div className="flex shrink-0 flex-col items-start gap-8">
+              <div className="text-lg font-bold text-secondary-default">
+                Contact Us
+              </div>
+              <div className="flex items-center gap-4">
+                <button className="rounded-md bg-white p-3">
+                  <PhoneCall
+                    weight="fill"
+                    size={26}
+                    className="fill-secondary-default transition-colors duration-300 ease-in-out"
+                  />
+                </button>
+                <div className="text-white">
+                  <div className="text-lg font-light">Call</div>
+                  <div className="text-xl font-bold">+012 34-56789</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <button className="rounded-md bg-white p-3">
+                  <ChatCircleDots
+                    weight="fill"
+                    size={26}
+                    className="fill-secondary-default transition-colors duration-300 ease-in-out"
+                  />
+                </button>
+                <div className="text-white">
+                  <div className="text-lg font-light">Call</div>
+                  <div className="text-xl font-bold">+012 34-56789</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="bg-[#070707]">
-          <div className="section-container flex flex-col items-center justify-between gap-4 py-5 text-sm text-gray-400 md:flex md:flex-row">
-            <div>Etalon, 2023. All Rights Reserved</div>
-            <div>
+        <div className="bg-white">
+          <div className="section-container flex flex-col items-center justify-between gap-4 py-6 font-semibold md:flex md:flex-row">
+            <div>©2023-All Rights Reserved</div>
+            <div className="flex gap-6">
               <Link
                 href="/"
                 className="transition-colors duration-150 ease-in-out hover:text-gray-200"
               >
-                Privacy & Cookies
+                Terms And Condition
               </Link>
-              <span> | </span>
               <Link
                 href={""}
                 className="transition-colors duration-150 ease-in-out hover:text-gray-200"
               >
-                T&Cs
+                Claim
               </Link>
-              <span> | </span>
               <Link
                 href={""}
                 className="transition-colors duration-150 ease-in-out hover:text-gray-200"
               >
-                Accessibility{" "}
+                Privacy & policy
               </Link>
             </div>
           </div>
         </div>
-      </footer> */}
+      </footer>
     </>
   )
 }
