@@ -908,6 +908,16 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="bg-primary-default">
+          <div className="section-container flex items-center justify-between py-16 text-white">
+            <div className="whitespace-nowrap text-6xl font-bold leading-tight">
+              50% Sale!
+            </div>
+            <div className="max-w-[70%] text-5xl font-bold leading-tight tracking-[-0.07em]">
+              Purchase your Selected item up to 50% Discount in every week
+            </div>
+          </div>
+        </section>
       </main>
       {/* <footer className="border-t border-gray-700">
         <div className="bg-[#191919]">
