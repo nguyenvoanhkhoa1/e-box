@@ -609,7 +609,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-br from-white from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container pb-8 pt-10 md:pt-16 xl:pb-10 xl:pt-20">
+          <div className="section-container pb-8 pt-16 xl:pb-10 xl:pt-20">
             <div className="flex items-center justify-center md:justify-between">
               <div className="text-center text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] md:text-start xl:text-5xl">
                 Browse By Book Types
