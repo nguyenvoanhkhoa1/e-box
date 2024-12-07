@@ -441,6 +441,7 @@ export default function Home() {
         settings: {
           slidesToShow: 1,
           swipe: true,
+          fade: true,
         },
       },
     ],
@@ -925,7 +926,7 @@ export default function Home() {
                   </div>
                 ))}
               </Slider>
-              <div className="absolute left-0 top-1/2 hidden w-full -translate-y-1/2 justify-between lg:flex">
+              <div className="absolute left-0 top-1/2 hidden w-full -translate-y-1/2 justify-between md:flex">
                 <button
                   className={`group rounded-full border-2 border-solid border-secondary-default p-3 shadow-lg shadow-secondary-default/20 transition duration-300 hover:bg-secondary-default`}
                   onClick={authorSliderRef.current?.slickPrev}
