@@ -362,6 +362,7 @@ export default function Home() {
   ]
 
   const isDesktop = useMedia("(min-width: 1024px)", true)
+  const isMd = useMedia("(min-width: 768px)", true)
   const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
 
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
@@ -398,6 +399,15 @@ export default function Home() {
         breakpoint: 1023,
         settings: {
           slidesToShow: 3,
+          rows: 2,
+          swipe: true,
+        },
+      },
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 2,
+          rows: 2,
           swipe: true,
         },
       },
@@ -422,6 +432,14 @@ export default function Home() {
       {
         breakpoint: 1023,
         settings: {
+          slidesToShow: 2,
+          swipe: true,
+        },
+      },
+      {
+        breakpoint: 639,
+        settings: {
+          slidesToShow: 1,
           swipe: true,
         },
       },
@@ -451,7 +469,7 @@ export default function Home() {
                 eB
               </div>
             </Link>
-            <button className="flex items-center gap-2 rounded-md bg-white p-3 shadow-md transition duration-300 hover:shadow-lg">
+            <button className="hidden items-center gap-2 rounded-md bg-white p-3 shadow-md transition duration-300 hover:shadow-lg lg:flex">
               <Image
                 src={"/assets/icons/gift-box.png"}
                 alt={""}
@@ -476,13 +494,13 @@ export default function Home() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <button
-              className="body-md-500 flex size-12 items-center justify-center rounded-md p-2 text-white transition duration-300 hover:bg-white/10 lg:hidden"
-              onClick={() => setOpenMobileMenu(true)}
-            >
-              <List size={24} />
-            </button>
+          <button
+            className="body-md-500 flex size-12 items-center justify-center rounded-md p-2 text-white transition duration-300 hover:bg-white/10 lg:hidden"
+            onClick={() => setOpenMobileMenu(true)}
+          >
+            <List size={24} className="fill-black" />
+          </button>
+          <div className="hidden items-center gap-2 lg:flex">
             <button className="group flex size-12 items-center justify-center rounded-full bg-transparent transition duration-300 hover:bg-black/10">
               <MagnifyingGlass
                 size={24}
@@ -513,7 +531,7 @@ export default function Home() {
               >
                 <X size={24} className="fill-white" />
               </button>
-              <div className="float-none mt-12 flex flex-col gap-2">
+              <div className="mt-12 flex flex-col items-center gap-2">
                 {HEADER_LINKS.map((item, index) => (
                   <Link
                     href={item.href}
@@ -529,7 +547,14 @@ export default function Home() {
                   </Link>
                 ))}
                 <button className="mx-auto mt-4 flex size-12 items-center justify-center rounded-full bg-primary-default transition duration-300">
-                  <Bag size={24} className="fill-secondary-dark" />
+                  <MagnifyingGlass size={24} className="fill-secondary-dark" />
+                </button>
+                <button className="mx-auto mt-4 flex size-12 items-center justify-center rounded-full bg-primary-default transition duration-300">
+                  <ShoppingCart size={24} className="fill-secondary-dark" />
+                </button>
+                <button className="group mt-8 flex items-center gap-2 rounded-md border-2 border-primary-default px-3 py-2 font-semibold text-primary-default transition duration-300 hover:bg-primary-default hover:text-white hover:shadow-lg hover:shadow-primary-default/20">
+                  <User size={24} className="fill-secondary-dark" />
+                  Login
                 </button>
               </div>
             </div>
@@ -538,14 +563,14 @@ export default function Home() {
       </header>
       <main>
         <section className="bg-gradient-to-tr from-white from-0% via-red-50 via-50% to-yellow-50 to-100%">
-          <div className="section-container grid grid-cols-2 gap-6 pb-20 pt-32">
-            <div className="relative flex flex-col gap-8">
-              <div className="text-5xl font-bold leading-tight tracking-[-0.07em]">
+          <div className="section-container grid grid-cols-1 gap-10 pb-10 pt-24 sm:pt-28 md:grid-cols-2 md:gap-6 md:pb-20 md:pt-32">
+            <div className="relative flex flex-col items-center gap-6 text-center md:items-start md:text-start lg:gap-8">
+              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] md:text-3xl lg:text-[40px] xl:text-5xl">
                 Unleash Your{" "}
                 <span className="text-primary-default">Creativity</span> With
                 The Power Of A Book.
               </div>
-              <div className="text-lg font-semibold">
+              <div className="text-base font-semibold lg:text-lg">
                 This should be used to tell a story and let your users know a
                 little more about your product or service.
               </div>
@@ -562,7 +587,7 @@ export default function Home() {
                 alt={""}
                 width={128}
                 height={128}
-                className="absolute bottom-0 right-0 size-20 translate-y-1/2"
+                className="absolute bottom-0 right-0 size-16 translate-y-full lg:size-20 lg:translate-y-1/2"
               />
             </div>
             <div className="relative flex items-center">
@@ -571,22 +596,22 @@ export default function Home() {
                 alt={""}
                 width={1000}
                 height={459}
-                className="mx-auto size-4/5"
+                className="mx-auto size-4/5 h-auto"
               />
               <Image
                 src={"/assets/icons/right-up.png"}
                 alt={""}
                 width={128}
                 height={128}
-                className="absolute bottom-1/2 right-0 size-20 -translate-y-1/2 xl:bottom-0 xl:translate-x-1/2"
+                className="absolute bottom-0 size-16 translate-y-full md:bottom-1/2 md:right-0 md:-translate-y-1/2 lg:size-20 xl:bottom-0 xl:translate-x-1/2"
               />
             </div>
           </div>
         </section>
         <section className="bg-gradient-to-br from-white from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container py-16 xl:py-20">
-            <div className="flex items-center justify-between">
-              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+          <div className="section-container pb-8 pt-10 md:pt-16 xl:pb-10 xl:pt-20">
+            <div className="flex items-center justify-center md:justify-between">
+              <div className="text-center text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] md:text-start xl:text-5xl">
                 Browse By Book Types
               </div>
               <div className="hidden gap-5 lg:flex">
@@ -612,11 +637,11 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="-mx-4 mt-10">
+            <div className="-mx-4 mt-10 lg:mt-14">
               <Slider {...settings} ref={sliderRef}>
                 {Object.entries(BOOK_TYPE_DATA).map(([type, data], index) => (
                   <div key={index} className="">
-                    <div className="mx-4 my-8 flex cursor-pointer items-center gap-6 rounded-lg bg-white px-8 py-6 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
+                    <div className="mx-auto mb-8 flex max-w-36 cursor-pointer flex-col items-center gap-6 rounded-lg bg-white px-6 py-4 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200 sm:mx-4 sm:max-w-full sm:flex-row md:px-8 md:py-6">
                       <Image
                         src={data.icon}
                         alt={`${type} Icon`}
@@ -624,7 +649,7 @@ export default function Home() {
                         height={128}
                         className="size-8"
                       />
-                      <div>
+                      <div className="text-center sm:text-start">
                         <div className="whitespace-nowrap font-semibold">
                           {type}
                         </div>
@@ -638,8 +663,8 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-tr from-yellow-50 from-0% via-red-50 via-50% to-purple-50 to-100%">
-          <div className="section-container flex justify-between py-16 xl:py-20">
-            <div className="flex w-full items-center justify-between bg-gradient-to-r from-red-100 to-orange-100 px-10 py-12">
+          <div className="section-container flex justify-between py-10 md:py-16 xl:py-20">
+            <div className="flex w-full flex-col items-center justify-between gap-6 bg-gradient-to-r from-red-100 to-orange-100 px-10 py-12 md:flex-row md:gap-0">
               <Image
                 src={"/assets/images/two-book.png"}
                 alt={""}
@@ -648,13 +673,13 @@ export default function Home() {
                 className="h-40 w-auto"
               />
               <div>
-                <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+                <div className="text-center text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] md:text-start xl:text-5xl">
                   Books <span className="text-primary-default">50% off</span>{" "}
                   now!
                   <br />
                   Don&apos;t miss such a deal!
                 </div>
-                <div className="mt-5 flex gap-5">
+                <div className="mt-5 flex justify-center gap-5 md:justify-start">
                   <button className="flex items-center gap-2 rounded-md border border-primary-default bg-primary-default px-3 py-2 font-semibold text-white shadow-primary-default/20 transition duration-300 hover:bg-orange-600 hover:shadow-lg">
                     Purchase Now
                   </button>
@@ -674,12 +699,12 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-br from-yellow-50 from-0% via-red-50 via-30% to-blue-50 to-100%">
-          <div className="section-container py-16 xl:py-20">
-            <div className="flex justify-between">
-              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+          <div className="section-container py-10 md:py-16 xl:py-20">
+            <div className="flex flex-col justify-between md:flex-row">
+              <div className="text-center text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] md:text-start xl:text-5xl">
                 Popular Collections
               </div>
-              <div className="flex items-center justify-center">
+              <div className="flex flex-wrap items-center justify-center">
                 {filterOptions.map((type) => (
                   <>
                     {type !== "All" && (
@@ -700,11 +725,11 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {filteredBooks.slice(0, visibleBooks).map((book) => (
                 <div
                   key={book.id}
-                  className="flex flex-col items-center bg-white p-6 transition duration-300 hover:shadow-lg"
+                  className="mx-auto flex w-full max-w-72 flex-col items-center bg-white p-6 transition duration-300 hover:shadow-lg"
                 >
                   <Image
                     src={book.image}
@@ -771,9 +796,9 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-[#FFF3EB]">
-          <div className="section-container py-16 xl:py-20">
-            <div className="flex items-center justify-between">
-              <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+          <div className="section-container py-10 md:py-16 xl:py-20">
+            <div className="flex flex-col items-center justify-between gap-6 text-center md:flex-row md:gap-0 md:text-start">
+              <div className="text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] xl:text-5xl">
                 Why Choice
                 <br />
                 The <span className="text-primary-default">eDox</span> Bookshop
@@ -785,27 +810,27 @@ export default function Home() {
                 the biggest villains,
               </div>
             </div>
-            <div className="mt-10 flex justify-between rounded-[64px] bg-white px-28 py-20">
+            <div className="mt-10 flex flex-col items-center justify-between rounded-[64px] bg-white px-6 py-12 sm:px-20 lg:flex-row lg:px-28 lg:py-20">
               <div className="relative">
-                <div className="absolute z-0 size-64 shrink-0 rounded-full bg-primary-default" />
+                <div className="absolute left-1/2 z-0 size-full shrink-0 -translate-x-1/2 rounded-full bg-primary-default lg:size-64" />
                 <Image
                   src={"/assets/images/graduation.png"}
                   alt={""}
                   width={256}
                   height={256}
-                  className="relative top-1/2 z-10 size-56 -translate-y-1/2 translate-x-1/3"
+                  className="relative z-10 mx-auto size-56 lg:translate-x-1/3"
                 />
               </div>
-              <div className="flex w-1/2 flex-col gap-6">
-                <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+              <div className="flex flex-col items-center gap-6 lg:w-1/2 lg:items-start">
+                <div className="mfont-bold text-center text-4xl leading-tight tracking-[-0.07em] sm:text-[40px] lg:text-start xl:text-5xl">
                   Expand your mind,{" "}
                   <span className="text-secondary-default">Reading</span> a book
                 </div>
-                <div className="font-semibold text-gray-700">
+                <div className="text-center font-semibold text-gray-700 lg:text-start">
                   Starting off in an eighteenth century London, this book
                   invites readers to an exciting journey.
                 </div>
-                <div className="flex gap-5">
+                <div className="flex flex-wrap justify-center gap-5 sm:flex-nowrap">
                   <div className="flex shrink-0 cursor-pointer items-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-blue-600 shadow-xl shadow-blue-100 transition duration-300 hover:shadow-blue-200">
                     <Image
                       src={"/assets/icons/productivity.png"}
@@ -842,8 +867,8 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-gradient-to-tr from-green-50 from-0% via-yellow-50 via-50% to-purple-50 to-100%">
-          <div className="section-container flex flex-col items-center py-16 xl:py-20">
-            <div className="text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+          <div className="section-container flex flex-col items-center py-10 md:py-16 xl:py-20">
+            <div className="text-4xl font-bold leading-tight tracking-[-0.07em] sm:text-[40px] xl:text-5xl">
               Meet our Author
             </div>
             <div className="mt-8 text-center font-semibold text-gray-700">
@@ -852,11 +877,11 @@ export default function Home() {
               It&apos;s about impact, influence inspiration. Impact involves
               getting results
             </div>
-            <div className="relative mt-10 w-full px-24">
+            <div className="relative mt-10 w-full md:px-24">
               <Slider {...settingsAuthorSlider} ref={authorSliderRef}>
                 {AUTHORS_LIST.map((author) => (
                   <div key={author.id} className="">
-                    <div className="relative mx-6 mb-8">
+                    <div className="relative mx-auto mb-8 max-w-96 sm:mx-6">
                       <Image
                         src={author.image}
                         alt={`${author.name}`}
@@ -873,25 +898,25 @@ export default function Home() {
                           {author.description}
                         </div>
                       </div>
-                      <div className="absolute left-1/2 top-full flex -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-white p-4 shadow-lg xl:px-8">
+                      <div className="absolute left-1/2 top-full flex w-5/6 -translate-x-1/2 -translate-y-1/2 justify-evenly gap-4 rounded-xl bg-white p-4 shadow-lg sm:w-auto xl:px-8">
                         <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <PhoneCall
                             weight="fill"
-                            size={20}
+                            size={isMd ? 20 : 28}
                             className="fill-white"
                           />
                         </button>
                         <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <User
                             weight="fill"
-                            size={20}
+                            size={isMd ? 20 : 28}
                             className="fill-white"
                           />
                         </button>
                         <button className="rounded bg-secondary-default p-2 transition duration-300 hover:bg-green-600">
                           <ChatCircleDots
                             weight="fill"
-                            size={20}
+                            size={isMd ? 20 : 28}
                             className="fill-white"
                           />
                         </button>
@@ -926,11 +951,11 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-primary-default">
-          <div className="section-container flex items-center justify-between py-16 text-white">
-            <div className="whitespace-nowrap text-5xl font-bold leading-tight xl:text-6xl">
+          <div className="section-container flex flex-col items-center justify-between gap-6 py-10 text-center text-white md:py-16 lg:flex-row lg:text-start">
+            <div className="whitespace-nowrap text-4xl font-bold leading-tight lg:text-5xl xl:text-6xl">
               50% Sale!
             </div>
-            <div className="max-w-[70%] text-[40px] font-bold leading-tight tracking-[-0.07em] xl:text-5xl">
+            <div className="max-w-[70%] text-3xl font-bold leading-tight tracking-[-0.07em] lg:text-[40px] xl:text-5xl">
               Purchase your Selected item up to 50% Discount in every week
             </div>
           </div>
@@ -938,7 +963,7 @@ export default function Home() {
       </main>
       <footer>
         <div className="bg-[#191919]">
-          <div className="section-container flex justify-between py-12">
+          <div className="section-container flex flex-wrap justify-center gap-6 py-12 lg:justify-between lg:gap-0">
             <div className="flex flex-col gap-6">
               <Link href="/" className="flex items-center gap-2">
                 <div className="rounded-md bg-primary-default px-3 py-1 text-2xl font-semibold text-white">
@@ -1021,7 +1046,7 @@ export default function Home() {
         <div className="bg-white">
           <div className="section-container flex flex-col items-center justify-between gap-4 py-6 font-semibold md:flex md:flex-row">
             <div>©2023-All Rights Reserved</div>
-            <div className="flex gap-6">
+            <div className="flex flex-col gap-6 text-center sm:flex-row">
               <Link href="/" className="hover:black transition duration-150">
                 Terms And Condition
               </Link>
